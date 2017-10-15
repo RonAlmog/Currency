@@ -6,11 +6,12 @@ import {
   } from 'react-native';
 
   import { Container } from '../components/container';
+  import { Logo } from '../components/logo';
 
   export default () => (
     <Container>
       <StatusBar translucent={false} barStyle="light-content" /> 
-        <View />
+      <Logo />
 
     </Container>
   );
