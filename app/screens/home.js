@@ -9,6 +9,8 @@ import {
   import { Logo } from '../components/logo';
   import { InputWithButton } from '../components/textinput';
 
+  import { ClearButton } from '../components/button'; 
+
   const TEMP_BASE_CURRENCY = 'USD';
   const TEMP_QUOTE_CURRENCY = 'CAD';
   const TEMP_BASE_PRICE = '100';
@@ -23,6 +25,9 @@ import {
     }
     handleTextChange = (text) => {
       console.log('change text',text );
+    }
+    handleSwapCurrency = () => {
+      console.log('swap currency');
     }
 
     render () {
@@ -42,6 +47,10 @@ import {
             onPress={this.handlePressQuoteCurrency}
             editable={false}
             value={TEMP_QUOTE_PRICE}
+          />
+          <ClearButton
+            text="Reverse Currencies" 
+            onPress={this.handleSwapCurrency}
           />
         </Container>
       )

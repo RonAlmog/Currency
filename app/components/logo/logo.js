@@ -10,7 +10,7 @@ const Logo = () => (
             style={styles.containerImage} 
             source={require(('./images/background.png'))}>
                 <Image 
-                    resizeMode="contain"
+                    resizeMode="contain"  
                     style={styles.image} 
                     source={require(('./images/logo.png'))} />
         </Image>
