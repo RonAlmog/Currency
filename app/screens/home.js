@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     Platform,
     StyleSheet,
-    Text, View, StatusBar
+    Text, View, StatusBar, KeyboardAvoidingView
   } from 'react-native';
 
   import { Container } from '../components/container';
@@ -10,6 +10,7 @@ import {
   import { InputWithButton } from '../components/textinput';
   import { ClearButton } from '../components/button'; 
   import { LastConverted } from '../components/text';
+  import { Header } from '../components/header';
 
   const TEMP_BASE_CURRENCY = 'USD';
   const TEMP_QUOTE_CURRENCY = 'CAD';
@@ -31,11 +32,17 @@ import {
     handleSwapCurrency = () => {
       console.log('swap currency');
     }
+    handleOptionsPress = () => {
+      console.log('options press');
+    }
+
 
     render () {
       return (
         <Container>
           <StatusBar translucent={false} barStyle="light-content" />  
+          <Header onPress={this.handleOptionsPress} />
+          <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton 
             buttonText={TEMP_BASE_CURRENCY}
@@ -60,6 +67,7 @@ import {
             text="Reverse Currencies" 
             onPress={this.handleSwapCurrency}
           />
+          </KeyboardAvoidingView>
         </Container>
       )
     }
