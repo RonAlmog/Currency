@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { ScrollView, StatusBar, Platform } from 'react-native';
+import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
 import PropTypes  from 'prop-types'
 import { ListItem, Separator } from '../components/list';
 import  Icon  from 'react-native-vector-icons/Octicons';
@@ -17,8 +17,8 @@ class Options extends Component {
   handleThemePress = () => {
     this.props.navigation.navigate('Themes');
   }
-  handleSitePress = () => { 
-
+  handleSitePress = () => {   
+    Linking.openURL('httwp://fixer.io').catch(() => alert('An Error occured!'));
   }
 
   render() {
