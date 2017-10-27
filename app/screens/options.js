@@ -3,6 +3,7 @@ import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
 import PropTypes  from 'prop-types'
 import { ListItem, Separator } from '../components/list';
 import  Icon  from 'react-native-vector-icons/Octicons';
+import { connectAlert } from '../components/alert';
 // import {Ionicons } from '@expo/vector-icons';
 
 const ICON_PREFIX = 'md'; //  Platform.OS === 'ios' ? 'ios' : 'md';
@@ -12,14 +13,16 @@ const ICON_SIZE = 23;
 class Options extends Component {
   static propTypes = {
     navigation: PropTypes.object,
-    name: PropTypes.string
+    name: PropTypes.string,
+    alertWithType: PropTypes.func,  
   }
   handleThemePress = () => {
     this.props.navigation.navigate('Themes');
   }
   handleSitePress = () => {   
-    Linking.openURL('httwp://fixer.io').catch(() => alert('An Error occured!'));
-  }
+    Linking.openURL('httwp://fixer.io').catch(() => 
+      this.props.alertWithType('error','Sorry!','Fixer.io cannot be opened righ now'));
+  } 
 
   render() {
    
@@ -46,6 +49,6 @@ class Options extends Component {
   }
 } 
 
-export default Options;
+export default connectAlert(Options);
 
 
