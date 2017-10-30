@@ -13,6 +13,8 @@ import {
   import { LastConverted } from '../components/text';
   import { Header } from '../components/header';
 
+  import { swapCurrency, changeCurrencyAmount } from '../actions/currencies';
+
   const TEMP_BASE_CURRENCY = 'USD';
   const TEMP_QUOTE_CURRENCY = 'CAD';
   const TEMP_BASE_PRICE = '100';
@@ -32,11 +34,13 @@ import {
       console.log('press quote');
       this.props.navigation.navigate('CurrencyList', {title: 'Quote Currency'});
     }
-    handleTextChange = (text) => {
-      console.log('change text',text );
+    handleTextChange = (amount) => {
+      console.log(changeCurrencyAmount(amount));
+      
     }
     handleSwapCurrency = () => {
       console.log('swap currency');
+      //this.props.dispatch(swapCurrency());
     }
     handleOptionsPress = () => {
       console.log('options press');
