@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { Provider } from 'react-redux';
 
 import Home from './screens/home';
 import CurrencyList from './screens/currencylist';
@@ -8,6 +9,7 @@ import Options from './screens/options';
 import Themes from './screens/themes'; 
 import Navigator from './config/routes';
 import { AlertProvider } from './components/alert';
+import store from './config/store';
 
 EStyleSheet.build({
     $primaryBlue: '#4F6D7A',
@@ -24,4 +26,9 @@ EStyleSheet.build({
 
 // $outline: 1, 
 
-export default () => <AlertProvider><Navigator /></AlertProvider>;   
+export default () => 
+    <Provider store={store}>
+        <AlertProvider>
+            <Navigator onNavigationStateChange={null} />
+        </AlertProvider>
+    </Provider>;   
